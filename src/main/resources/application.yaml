@@ -3,4 +3,6 @@ ktor:
     port: 8080
   application:
     modules:
+      - com.logue.HTTPKt.configureHTTP
+      - com.logue.SerializationKt.configureSerialization
       - com.logue.RoutingKt.configureRouting

@@ -1,0 +1,5 @@
+[
+  { "usuario": "ciudadano1",  "password": "1234", "nombre": "Juan Pérez",     "rol": "CIUDADANO" },
+  { "usuario": "paramedico1", "password": "1234", "nombre": "María López",    "rol": "PARAMEDICO" },
+  { "usuario": "admin1",      "password": "1234", "nombre": "Carlos Ramírez", "rol": "ADMINISTRADOR" }
+]
