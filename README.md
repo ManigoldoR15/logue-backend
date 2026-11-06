@@ -94,3 +94,8 @@ JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64 ./gradlew test   # pruebas
 ```
 
 Al arrancar verás `Responding at http://0.0.0.0:8080`. Arranca el backend **antes** que el frontend.
+
+## Despliegue (SSH, firewall y backup)
+
+El servidor se instala y se actualiza con los scripts de [`deploy/`](deploy/). Ahí está el paso a paso:
+firewall con `ufw`, SSH solo con llaves, deploy key de GitHub, despliegue desde la rama `main` y backups automáticos.
