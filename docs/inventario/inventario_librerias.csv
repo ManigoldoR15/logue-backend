@@ -1,0 +1,61 @@
+proyecto,modulo,configuracion,tipo,id,version,fuente_version,uso
+backend,(raiz),settings plugins,plugin-settings,org.gradle.toolchains.foojay-resolver-convention,1.0.0,settings.gradle.kts,Descarga automatica del JDK requerido por el toolchain
+backend,(raiz),versionCatalogs,catalogo,io.ktor:ktor-version-catalog,3.6.0,settings.gradle.kts,Catalogo ktorLibs con versiones de Ktor
+backend,(raiz),plugins,plugin,org.jetbrains.kotlin.jvm,2.4.0,gradle/libs.versions.toml,Compilar Kotlin para la JVM
+backend,(raiz),plugins,plugin,io.ktor.plugin,3.6.0,ktor-version-catalog 3.6.0,Plugin Gradle de Ktor (tareas run / fat jar; aplica plugin application)
+backend,(raiz),plugins,plugin,org.jetbrains.kotlin.plugin.serialization,2.4.0,gradle/libs.versions.toml,Genera serializadores para clases @Serializable
+backend,(raiz),catalogo (no aplicado),plugin,org.jetbrains.kotlin.multiplatform,2.4.0,gradle/libs.versions.toml,Declarado en el catalogo pero no se usa en el backend
+backend,(raiz),implementation,libreria,io.ktor:ktor-server-config-yaml,3.6.0,ktor-version-catalog 3.6.0,Leer la configuracion application.yaml
+backend,(raiz),implementation,libreria,io.ktor:ktor-server-core,3.6.0,ktor-version-catalog 3.6.0,Nucleo del servidor Ktor (Application / Routing)
+backend,(raiz),implementation,libreria,io.ktor:ktor-server-netty,3.6.0,ktor-version-catalog 3.6.0,Motor HTTP Netty (EngineMain)
+backend,(raiz),implementation,libreria,io.ktor:ktor-server-content-negotiation,3.6.0,ktor-version-catalog 3.6.0,Plugin ContentNegotiation (JSON <-> data classes)
+backend,(raiz),implementation,libreria,io.ktor:ktor-serialization-kotlinx-json,3.6.0,ktor-version-catalog 3.6.0,Conversor JSON basado en kotlinx.serialization
+backend,(raiz),implementation,libreria,io.ktor:ktor-server-cors,3.6.0,ktor-version-catalog 3.6.0,Plugin CORS para permitir llamadas del frontend web
+backend,(raiz),implementation,libreria,ch.qos.logback:logback-classic,1.5.37,gradle/libs.versions.toml,Logs del servidor (logback.xml)
+backend,(raiz),testImplementation,libreria-test,org.jetbrains.kotlin:kotlin-test,2.4.0,kotlin("test") = version del plugin Kotlin,Aserciones y anotaciones @Test
+backend,(raiz),testImplementation,libreria-test,io.ktor:ktor-server-test-host,3.6.0,ktor-version-catalog 3.6.0,testApplication para probar el servidor sin red
+backend,(raiz),testImplementation,libreria-test,io.ktor:ktor-client-content-negotiation,3.6.0,ktor-version-catalog 3.6.0,Cliente de prueba que envia/recibe JSON
+frontend,(raiz),settings plugins,plugin-settings,org.gradle.toolchains.foojay-resolver-convention,1.0.0,settings.gradle.kts,Descarga automatica del JDK (daemon JVM Azul 21)
+frontend,(raiz),plugins apply false,plugin,com.android.application,9.1.1,gradle/libs.versions.toml (agp),Plugin Android para androidApp
+frontend,(raiz),plugins apply false,plugin,com.android.kotlin.multiplatform.library,9.1.1,gradle/libs.versions.toml (agp),Target Android dentro del modulo KMP shared
+frontend,(raiz),plugins apply false,plugin,org.jetbrains.compose,1.12.1,gradle/libs.versions.toml,Compose Multiplatform (recursos / escritorio)
+frontend,(raiz),plugins apply false,plugin,org.jetbrains.kotlin.plugin.compose,2.4.20,gradle/libs.versions.toml,Compilador de Compose
+frontend,(raiz),plugins apply false,plugin,org.jetbrains.kotlin.jvm,2.4.20,gradle/libs.versions.toml,Kotlin JVM (desktopApp)
+frontend,(raiz),plugins apply false,plugin,org.jetbrains.kotlin.multiplatform,2.4.20,gradle/libs.versions.toml,Kotlin Multiplatform (shared / webApp)
+frontend,(raiz),plugins apply false,plugin,org.jetbrains.kotlin.plugin.serialization,2.4.20,gradle/libs.versions.toml,Serializadores @Serializable (modelos y rutas)
+frontend,shared,commonMain,libreria,org.jetbrains.compose.runtime:runtime,1.12.1,gradle/libs.versions.toml,Runtime de Compose (estado / recomposicion)
+frontend,shared,commonMain,libreria,org.jetbrains.compose.foundation:foundation,1.12.1,gradle/libs.versions.toml,Layouts / gestos / listas Lazy
+frontend,shared,commonMain,libreria,org.jetbrains.compose.material3:material3,1.12.0-alpha03,gradle/libs.versions.toml,Componentes Material 3 (Scaffold / Card / TopAppBar...)
+frontend,shared,commonMain,libreria,org.jetbrains.compose.ui:ui,1.12.1,gradle/libs.versions.toml,UI base de Compose
+frontend,shared,commonMain,libreria,org.jetbrains.compose.components:components-resources,1.12.1,gradle/libs.versions.toml,Recursos multiplataforma (composeResources)
+frontend,shared,commonMain + androidMain,libreria,org.jetbrains.compose.ui:ui-tooling-preview,1.12.1,gradle/libs.versions.toml,Anotacion @Preview
+frontend,shared,commonMain,libreria,org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose,2.11.0,gradle/libs.versions.toml,ViewModel multiplataforma (LoginViewModel)
+frontend,shared,commonMain,libreria,org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose,2.11.0,gradle/libs.versions.toml,collectAsStateWithLifecycle
+frontend,shared,commonMain,libreria,org.jetbrains.androidx.navigation:navigation-compose,2.9.2,gradle/libs.versions.toml,NavHost y rutas type-safe por rol
+frontend,shared,commonMain,libreria,io.ktor:ktor-client-core,3.6.0,gradle/libs.versions.toml,Cliente HTTP para POST /login
+frontend,shared,commonMain,libreria,io.ktor:ktor-client-content-negotiation,3.6.0,gradle/libs.versions.toml,JSON automatico en el cliente
+frontend,shared,commonMain,libreria,io.ktor:ktor-serialization-kotlinx-json,3.6.0,gradle/libs.versions.toml,Conversor JSON de Ktor con kotlinx.serialization
+frontend,shared,commonMain,libreria,org.jetbrains.kotlinx:kotlinx-serialization-json,1.11.0,gradle/libs.versions.toml,Serializacion JSON (modelos y rutas)
+frontend,shared,androidMain,libreria,org.jetbrains.compose.ui:ui-tooling,1.12.1,gradle/libs.versions.toml,Herramientas de preview en Android (tambien androidRuntimeClasspath)
+frontend,shared,androidMain,libreria,io.ktor:ktor-client-okhttp,3.6.0,gradle/libs.versions.toml,Engine HTTP OkHttp para Android
+frontend,shared,jvmMain,libreria,io.ktor:ktor-client-cio,3.6.0,gradle/libs.versions.toml,Engine HTTP CIO para escritorio
+frontend,shared,webMain (js + wasmJs),libreria,io.ktor:ktor-client-js,3.6.0,gradle/libs.versions.toml,Engine HTTP basado en fetch del navegador
+frontend,shared,jsMain,libreria,org.jetbrains.kotlin-wrappers:kotlin-browser,2026.9.3,gradle/libs.versions.toml,API del navegador (navigator.userAgent en Platform.js.kt)
+frontend,shared,commonTest,libreria-test,org.jetbrains.kotlin:kotlin-test,2.4.20,gradle/libs.versions.toml,Pruebas multiplataforma
+frontend,shared,jvmTest,libreria-test,io.ktor:ktor-client-mock,3.6.0,gradle/libs.versions.toml,MockEngine para probar LoginRepository sin backend
+frontend,androidApp,implementation,proyecto,project(:shared),-,settings.gradle.kts,Codigo compartido (App())
+frontend,androidApp,implementation,libreria,androidx.activity:activity-compose,1.13.0,gradle/libs.versions.toml,setContent { App() } en MainActivity
+frontend,androidApp,implementation,libreria,org.jetbrains.compose.ui:ui-tooling-preview,1.12.1,gradle/libs.versions.toml,@Preview en MainActivity
+frontend,androidApp,debugImplementation,libreria,org.jetbrains.compose.ui:ui-tooling,1.12.1,gradle/libs.versions.toml,Herramientas de preview solo en debug
+frontend,desktopApp,implementation,proyecto,project(:shared),-,settings.gradle.kts,Codigo compartido (App())
+frontend,desktopApp,implementation,libreria,compose.desktop.currentOs (org.jetbrains.compose.desktop:desktop-jvm-<so>),1.12.1,version del plugin org.jetbrains.compose,Runtime de Compose Desktop para el SO actual (en cache: desktop-jvm-linux-x64 1.12.1)
+frontend,desktopApp,implementation,libreria,org.jetbrains.kotlinx:kotlinx-coroutines-swing,1.11.0,gradle/libs.versions.toml,Dispatcher Main de corrutinas sobre Swing
+frontend,desktopApp,implementation,libreria,org.jetbrains.compose.ui:ui-tooling-preview,1.12.1,gradle/libs.versions.toml,@Preview en escritorio
+frontend,webApp,commonMain,proyecto,project(:shared),-,settings.gradle.kts,Codigo compartido (App())
+frontend,webApp,commonMain,libreria,org.jetbrains.compose.ui:ui,1.12.1,gradle/libs.versions.toml,ComposeViewport para montar la app en el navegador
+frontend,(catalogo),no usada,libreria,org.jetbrains.kotlin:kotlin-test-junit,2.4.20,gradle/libs.versions.toml,Declarada en el catalogo; ningun modulo la usa
+frontend,(catalogo),no usada,libreria,junit:junit,4.13.2,gradle/libs.versions.toml,Declarada en el catalogo; ningun modulo la usa
+frontend,(catalogo),no usada,libreria,androidx.core:core-ktx,1.19.1,gradle/libs.versions.toml,Declarada en el catalogo; ningun modulo la usa
+frontend,(catalogo),no usada,libreria,androidx.test.ext:junit,1.3.0,gradle/libs.versions.toml,Declarada en el catalogo; ningun modulo la usa
+frontend,(catalogo),no usada,libreria,androidx.test.espresso:espresso-core,3.7.0,gradle/libs.versions.toml,Declarada en el catalogo; ningun modulo la usa
+frontend,(catalogo),no usada,libreria,androidx.appcompat:appcompat,1.8.0,gradle/libs.versions.toml,Declarada en el catalogo; ningun modulo la usa
